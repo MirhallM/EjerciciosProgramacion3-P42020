@@ -5,19 +5,25 @@
 
 class Racional
 {
-private:
-	int numerador, denominador;
 public:
 	Racional();
 	Racional(int, int);
 
-	void ImprimirRacional(); //17/6
-	void ImprimirDecimal(); //2.8333
+	void imprimirRacional(); // 17/6
+	void imprimirDecimal();  // 2.8333
 
-	Racional suma(Racional r2);
+	Racional suma(Racional);
+	Racional resta(Racional);
+	Racional multiplicacion(Racional);
+	Racional division(Racional);
+	Racional potencia(int);
+
+private:
+	int numerador, denominador;
+	void simplificar();
 };
 
-//Prototipo de funcion externa (clase) de suma
+// prototipo de funcion externa (clase) de suma
 Racional suma(Racional, Racional);
-#endif // !RACIONAL_H
 
+#endif

@@ -1,41 +1,105 @@
-#include <iostream>
 
 #include "Racional.h"
+#include <iostream>
+#include <cmath>
 
-using namespace std;
+using std::cout;
 
-Racional::Racional() : numerador(1), denominador(1) 
+Racional::Racional() : numerador(1), denominador(1)
 {}
-
 
 Racional::Racional(int _num, int _den) : numerador(_num), denominador(_den)
-{}
-
-void Racional::ImprimirRacional() //3/4
 {
-	cout << numerador << "/" << denominador << endl;
+	simplificar();
 }
 
-void Racional::ImprimirDecimal()
+void Racional::imprimirRacional() // 3/4
 {
-	if (denominador == 0 && numerador == 0) {
-		cout << "Numero indefinido" << endl;
+	if (numerador == 0 && denominador == 0)
+	{
+		cout << "Resultado indefinido\n";
 		return;
 	}
-	else if (denominador == 0) {
-		cout << "No se puede dividir entre zero" << endl;
+	else if (denominador == 0)
+	{
+		cout << "No se puede dividir por cero\n";
 		return;
 	}
 
+	cout << numerador << "/" << denominador << "\n";
+}
 
-	cout << ((float)(numerador) / (float)(denominador)) << endl;
+void Racional::imprimirDecimal() // 0.75
+{
+	if (numerador == 0 && denominador == 0)
+	{
+		cout << "Resultado indefinido\n";
+		return;
+	}
+	else if (denominador == 0)
+	{
+		cout << "No se puede dividir por cero\n";
+		return;
+	}
+
+	cout << (float(numerador) / float(denominador)) << "\n";
+
 }
 
 Racional Racional::suma(Racional r2)
 {
 
-	//Cuando ambos denomiandores sean iguales
+	//cuando ambos denominadores sean iguales
 	if (this->denominador == r2.denominador)
-		return Racional(this->numerador + r2.numerador, this->denominador);
+		return Racional(this->numerador + r2.numerador, r2.denominador);
+	else
+		return Racional((this->numerador * r2.denominador) + (r2.numerador * this->denominador),
+			this->denominador * r2.denominador);
+}
+
+Racional Racional::resta(Racional r2)
+{
+	//cuando ambos denominadores sean iguales
+	if (this->denominador == r2.denominador)
+		return Racional(this->numerador - r2.numerador, r2.denominador);
+	else
+		return Racional((this->numerador * r2.denominador) - (r2.numerador * this->denominador),
+			this->denominador * r2.denominador);
+}
+
+void Racional::simplificar()
+{
+	int mayor = numerador > denominador ? numerador : denominador;
+
+	for (int i = 2; i <= mayor; i++)
+	{
+		if (numerador % i == 0 && denominador % i == 0)
+		{
+			numerador = numerador / i;
+			denominador = denominador / i;
+
+			i = 1;
+		}
+	}
+}
+
+Racional Racional::multiplicacion(Racional r2)
+{
+
+	return Racional(this->numerador * r2.numerador, this->denominador * r2.denominador);
+
+}
+
+Racional Racional::division(Racional r2)
+{
+
+	return Racional(this->numerador * r2.denominador, this->denominador * r2.numerador);
+
+}
+
+Racional Racional::potencia(int exponente)
+{
+
+	return Racional(pow(this->numerador, exponente), pow(this->denominador, exponente));
 
 }
