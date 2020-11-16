@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Semana5", "Semana5", "{B7E7
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ejemploCadena", "ejemploCadenaq\ejemploCadenaq.vcxproj", "{6F096911-8FE1-4445-9013-92204E633231}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tarea6", "tarea6\tarea6.vcxproj", "{EE94FC71-2E00-4D0E-9992-F96D469DAA0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -141,6 +143,14 @@ Global
 		{6F096911-8FE1-4445-9013-92204E633231}.Release|x64.Build.0 = Release|x64
 		{6F096911-8FE1-4445-9013-92204E633231}.Release|x86.ActiveCfg = Release|Win32
 		{6F096911-8FE1-4445-9013-92204E633231}.Release|x86.Build.0 = Release|Win32
+		{EE94FC71-2E00-4D0E-9992-F96D469DAA0E}.Debug|x64.ActiveCfg = Debug|x64
+		{EE94FC71-2E00-4D0E-9992-F96D469DAA0E}.Debug|x64.Build.0 = Debug|x64
+		{EE94FC71-2E00-4D0E-9992-F96D469DAA0E}.Debug|x86.ActiveCfg = Debug|Win32
+		{EE94FC71-2E00-4D0E-9992-F96D469DAA0E}.Debug|x86.Build.0 = Debug|Win32
+		{EE94FC71-2E00-4D0E-9992-F96D469DAA0E}.Release|x64.ActiveCfg = Release|x64
+		{EE94FC71-2E00-4D0E-9992-F96D469DAA0E}.Release|x64.Build.0 = Release|x64
+		{EE94FC71-2E00-4D0E-9992-F96D469DAA0E}.Release|x86.ActiveCfg = Release|Win32
+		{EE94FC71-2E00-4D0E-9992-F96D469DAA0E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

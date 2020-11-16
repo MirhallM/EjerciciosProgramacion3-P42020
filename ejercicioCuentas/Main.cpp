@@ -33,24 +33,6 @@ void MenuPrincipal(int& opcion)
 	}
 }
 
-int main()
-{
-	vector<Cuenta> cuentas;
-	bool Corriendo = true;
-	
-	cout << fixed << setprecision(2);
-
-	cout << "--- A C T I V I D A D  4 ---" << endl;
-
-	while (Corriendo)
-	{
-		int opcion = 0;
-		MenuPrincipal(opcion);
-		Opciones(opcion, cuentas, Corriendo);
-	}
-	_getch();
-}
-
 void Opciones(int opcion, std::vector<Cuenta>& cuentas, bool& Corriendo)
 {
 	switch (opcion)
@@ -60,15 +42,19 @@ void Opciones(int opcion, std::vector<Cuenta>& cuentas, bool& Corriendo)
 		break;
 
 	case 2:  // Obtener saldo
+		ObtenerSaldo(cuentas);
 		break;
 
 	case 3:  // Abonar
+		Abonar(cuentas);
 		break;
 
 	case 4:  // Cargar
+		Cargar(cuentas);
 		break;
 
 	case 5:  // Obtener intereses
+		ObtenerIntereses(cuentas);
 		break;
 
 	case 6:  // Obtener Cuentas
@@ -80,6 +66,94 @@ void Opciones(int opcion, std::vector<Cuenta>& cuentas, bool& Corriendo)
 
 	default:
 		break;
+	}
+}
+
+void ObtenerIntereses(vector<Cuenta>& cuentas)
+{
+	string buscar;
+	cout << "Ingrese el numero de cuenta a obtener intereses: ";
+	cin >> buscar;
+	int result = buscarCuenta(buscar, cuentas);
+	if (result != -1)
+	{
+		Cuenta temp = cuentas.at(result);
+		if (dynamic_cast<Cuenta>(*temp) != nullptr)
+		{
+
+		}
+	}
+}
+
+void Cargar(vector<Cuenta>& cuentas)
+{
+	int cargo = 0;
+	string buscar;
+	cout << "Ingrese el numero de cuenta a cargar: ";
+	cin >> buscar;
+	cout << "Ingrese la cantidad a cargar: ";
+	cin >> cargo;
+
+	int result = buscarCuenta(buscar, cuentas);
+	if (result != -1)
+	{
+		cuentas.at(result).cargar(cargo);
+	}
+	else
+	{
+		cout << "No se pudo encontrar cuenta!" << endl;
+	}
+}
+
+void Abonar(vector<Cuenta>& cuentas)
+{
+	int abono = 0;
+	string buscar;
+	cout << "Ingrese el numero de cuenta a abonar: ";
+	cin >> buscar;
+	cout << "Ingrese cantidad a abonar: ";
+	cin >> abono;
+	int result = buscarCuenta(buscar, cuentas);
+	if (result == -1)
+	{
+		cuentas.at(result).abonar(abono);
+		cout << "Se abono con exito!" << endl;
+	}
+	else
+	{
+		cout << "No se pudo encontrar la cuenta!" << endl;
+		cout << "Logicamente no se pudo abonar tampoco!" << endl;
+	}
+}
+
+int buscarCuenta(string cuenta, vector<Cuenta>& cuentas)
+{
+	int counter = 0;
+	for (Cuenta cuenta1 : cuentas)
+	{
+		if (cuenta1.getNumeroCuenta()._Equal(cuenta))
+		{
+			return counter;
+		}
+		counter++;
+	}
+	return -1;
+}
+
+void ObtenerSaldo(std::vector<Cuenta>& cuentas)
+{
+	string buscar;
+	cout << "Ingrese un numero de cuenta a buscar: ";
+	std::cin >> buscar;
+	int result = buscarCuenta(buscar, cuentas);
+	if (result != -1)
+	{
+		int saldo = cuentas.at(result).obtenerSaldo();
+		cout << "Saldo de la cuenta es " << saldo << "$" << endl;
+	}
+	else
+	{
+		cout << "No se pudo encontrar esa cuenta!" << endl;
 	}
 }
 
@@ -131,4 +205,22 @@ void CrearCuenta(std::vector<Cuenta>& cuentas)
 
 		cuentas.push_back(CuentaCheques(numeroCuenta, saldoInicial, couta));
 	}
+}
+
+int main()
+{
+	vector<Cuenta> cuentas;
+	bool Corriendo = true;
+
+	cout << fixed << setprecision(2);
+
+	cout << "--- A C T I V I D A D  4 ---" << endl;
+
+	while (Corriendo)
+	{
+		int opcion = 0;
+		MenuPrincipal(opcion);
+		Opciones(opcion, cuentas, Corriendo);
+	}
+	_getch();
 }

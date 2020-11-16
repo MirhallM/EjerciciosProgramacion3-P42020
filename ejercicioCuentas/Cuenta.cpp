@@ -26,6 +26,7 @@ bool Cuenta::cargar(double cantidad)
 	}
 	else
 	{
+		cout << "Cargo hecho con exito!";
 		saldo = saldo - cantidad;
 		return true;
 	}
