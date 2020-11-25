@@ -6,9 +6,43 @@ using namespace std;
 ListaSimple::ListaSimple() : head(nullptr)
 {}
 
+Nodo* ListaSimple::obtenerPosNodo(int _posicion)
+{
+	if (estaVacia()) return nullptr;
+
+	Nodo* actual = head;
+	int posActual = 0;
+
+	do
+	{
+		if (posActual == _posicion) return actual;
+
+		posActual++;
+		actual = actual->getSiguiente();
+	} while (actual != nullptr);
+
+	return nullptr;
+}
+
 bool ListaSimple::estaVacia()
 {
 	return head == nullptr;
+}
+
+int ListaSimple::obtenerTamanio()
+{
+	if (estaVacia()) return 0;
+
+	int cantidad = 0;
+	Nodo* actual = head;
+
+	do
+	{
+		cantidad++;
+		actual = actual->getSiguiente();
+	} while (actual != nullptr);
+
+	return cantidad;
 }
 
 void ListaSimple::addNode(int valor)
@@ -53,10 +87,15 @@ Nodo* ListaSimple::searchNode(int valor)
 
 void ListaSimple::deleteNode(int valor)
 {
+	if (estaVacia())
+	{
+		return;
+	}
+
 	Nodo* actual = head;
 	Nodo* previa = nullptr;
 
-	if (actual != nullptr && actual->getValor() == valor)
+	if (actual->getValor() == valor)
 	{
 		head = actual->getSiguiente();
 		return;
@@ -68,7 +107,42 @@ void ListaSimple::deleteNode(int valor)
 	}
 
 	if (actual == nullptr) return;
-	if (previa != nullptr) previa->setSiguiente(actual->getSiguiente());
+	if (previa != nullptr)
+	{
+		previa->setSiguiente(actual->getSiguiente());
+		delete actual;
+	}
+}
+
+void ListaSimple::ordernarLista()
+{
+	if (estaVacia()) return;
+
+	int swapped;
+
+	Nodo* left;  //Apunta al principio de la lista
+	Nodo* right = nullptr;  //Apunta al final de la lista    1 - 2  - 3 -> nullprt
+	do {
+		swapped = 0;
+		left = head;
+		while (left->getSiguiente() != right)
+		{
+			if (left->getValor() > left->getSiguiente()->getValor())
+			{
+				nodoSwap(left, left->getSiguiente());
+				swapped = 1;
+			}
+			left = left->getSiguiente();
+		}
+		right = left;
+	} while (swapped);
+}
+
+void ListaSimple::nodoSwap(Nodo* Nodo1, Nodo* Nodo2)
+{
+	int temp = Nodo1->getValor();
+	Nodo1->setValor(Nodo2->getValor());
+	Nodo2->setValor(temp);
 }
 
 void ListaSimple::printList()
@@ -85,6 +159,7 @@ void ListaSimple::printList()
 		{
 			cout << "Valor de Nodo " << count << ": " << actual->getValor() << endl;
 			count++;
+			actual = actual->getSiguiente();
 		}
 	}
 }
