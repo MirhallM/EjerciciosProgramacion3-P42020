@@ -20,6 +20,8 @@ public:
 	Nodo* searchNode(int);
 	void deleteNode(int);
 	void ordernarLista();
+	void insertionSort();
+	void sortedInsert(Nodo** head, Nodo* newNode);
 	
 
 	void printList();

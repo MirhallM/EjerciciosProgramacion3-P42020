@@ -138,6 +138,41 @@ void ListaSimple::ordernarLista()
 	} while (swapped);
 }
 
+void ListaSimple::insertionSort()
+{
+	Nodo *sorted = nullptr;
+	Nodo* current = head;
+
+	while (current != nullptr)
+	{
+		Nodo* next = current->getSiguiente();
+		sortedInsert(&sorted, current);
+		current = next;
+	}
+
+	head = sorted;
+}
+
+void ListaSimple::sortedInsert(Nodo** headRef, Nodo* newNode)
+{
+	Nodo* current;
+	if (*headRef == nullptr || (*headRef)->getValor() >= newNode->getValor())
+	{
+		newNode->setSiguiente(*headRef);
+		*headRef = newNode;
+	}
+	else
+	{
+		current = *headRef;
+		while (current->getSiguiente() != nullptr && current->getSiguiente()->getValor() < newNode->getValor())
+		{
+			current = current->getSiguiente();
+		}
+		newNode->setSiguiente(current->getSiguiente());
+		current->setSiguiente(newNode);
+	}
+}
+
 void ListaSimple::nodoSwap(Nodo* Nodo1, Nodo* Nodo2)
 {
 	int temp = Nodo1->getValor();

@@ -16,8 +16,9 @@ int main()
 
 	ls.printList();
 
-	ls.ordernarLista();
-	std::cout << "lista ordenada" << std::endl;
+	ls.insertionSort();
+
+	std::cout << "lista ordenada por insertion sort" << std::endl;
 
 	ls.printList();
 
