@@ -9,6 +9,11 @@ int main()
 	lc.agregarNodo("Lee");
 
 	lc.imprimirLista();
+	lc.imprimirListaReversa();
+
+	lc.eliminarNodo("Ana");
+	lc.imprimirLista();
+	lc.imprimirListaReversa();
 
 
 	_getch();

@@ -36,8 +36,44 @@ void ListaCircular::agregarNodo(const char* _valor)
 	cout << "Nodo agregado!" << endl;
 }
 
-void ListaCircular::eliminarNodo(char* _valor)
+void ListaCircular::eliminarNodo(const char* _valor)
 {
+	if (estaVacia())
+	{
+		cout << "Lista vacia! " << endl;
+		return;
+	}
+
+	Nodo* actual = head;
+
+	do
+	{
+		if (strcmp(actual->getValor(), _valor) == 0 )
+		{	
+			if (actual == head)
+			{
+				head = actual->getSiguiente();
+				head->setAnterior(tail);
+				tail->setSiguiente(head);
+			}
+			else if (actual == tail)
+			{
+				tail = actual->getAnterior();
+				tail->setSiguiente(head);
+				head->setAnterior(tail);
+			}
+			else
+			{
+				actual->getAnterior()->setSiguiente(actual->getSiguiente());
+				actual->getSiguiente()->setAnterior(actual->getAnterior());
+			}
+
+			delete actual;
+			cout << "Nodo fue eliminado!" << endl;
+			return;
+		}
+		actual = actual->getSiguiente();
+	} while (actual != head);
 }
 
 void ListaCircular::imprimirLista()
@@ -56,4 +92,18 @@ void ListaCircular::imprimirLista()
 		counter++;
 		actual = actual->getSiguiente();
 	}while (actual != head);
+}
+
+void ListaCircular::imprimirListaReversa()
+{
+	if (estaVacia()) return;
+
+	Nodo* actual = tail;
+
+	do
+	{
+		cout << "[ " << actual->getValor() << " ] ";
+		actual = actual->getAnterior();
+	} while (actual != tail);
+	cout << endl;
 }
