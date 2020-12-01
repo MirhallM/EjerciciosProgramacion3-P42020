@@ -18,7 +18,7 @@ public:
 	void setSiguiente(AlumnoNodo* _siguiente);
 
 	char* getNombre();
-	float getNota();
+	float getNota() const;
 	AlumnoNodo* getSiguiente();
 };
 #endif // !ALUMNONODO_H

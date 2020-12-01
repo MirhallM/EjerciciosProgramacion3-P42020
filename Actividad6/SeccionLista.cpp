@@ -1,5 +1,6 @@
 #include "SeccionLista.h"
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -15,13 +16,13 @@ SeccionLista::SeccionLista() : primero(nullptr)
 void SeccionLista::agregarAlumno(const char* nombre, float nota)
 {
 
-	if (nota < 0 && nota > 100)
+	if (nota < 0 || nota > 100)
 	{
 		cout << "Nota no puede ser menor a 0 o mayor a 100" << endl;
 		return;
 	}
 
-	AlumnoNodo* nuevo = new AlumnoNodo(nombre, nota, nullptr);
+	auto* nuevo = new AlumnoNodo(nombre, nota, nullptr);
 
 	if (estaVacia() || strcmp(primero->getNombre(), nombre) >= 0)
 	{

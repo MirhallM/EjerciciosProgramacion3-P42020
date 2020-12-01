@@ -1,4 +1,5 @@
 
+#include <cstring>
 #include "Cadena.h"
 
 Cadena::Cadena() : contenido(nullptr)
