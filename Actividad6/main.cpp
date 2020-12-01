@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void AgregarAlumno(SeccionLista& lista)
+void agregarAlumno(SeccionLista& lista)
 {
 	string nombre;
 	float nota; 
@@ -20,7 +20,7 @@ int main()
 {
 	SeccionLista sl;
 	int menuPrincipal = 0;
-	bool Menu{ 1 };
+	bool Menu{ true };
 	cout << " * * * A C T I V I D A D  6 * * *" << endl;
 	do {
 		cout << endl;
@@ -36,7 +36,7 @@ int main()
 			switch (menuPrincipal)
 			{
 			case 1:
-				AgregarAlumno(sl);
+                agregarAlumno(sl);
 				break;
 			case 2:
 				sl.listarSeccion();
@@ -47,6 +47,8 @@ int main()
 			case 4:
 				Menu = false;
 				break;
+            default:
+                break;
 			}
 		}
 	} while (Menu);

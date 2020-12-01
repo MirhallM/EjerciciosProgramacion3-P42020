@@ -3,16 +3,18 @@
 #ifndef CUENTA_H
 #define CUENTA_H
 
+#include <xstring>
+
 class Cuenta
 {
 public:
-	Cuenta(string, double);
+	Cuenta(std::string, double);
 	void abonar(double);
 	bool cargar(double);
 	double obtenerSaldo();
 	void actualizarSaldo(double);
 	std::string getNumeroCuenta();
-	void setNumeroCuenta(string);
+	void setNumeroCuenta(std::string);
 
 private:
 	std::string numeroCuenta;

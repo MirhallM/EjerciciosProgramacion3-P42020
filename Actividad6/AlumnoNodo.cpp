@@ -1,5 +1,6 @@
 #include "AlumnoNodo.h"
 #include <iostream>
+#include <cstring>
 
 AlumnoNodo::AlumnoNodo() : nombre(nullptr), nota(0), siguiente(nullptr)
 {
@@ -34,7 +35,7 @@ char* AlumnoNodo::getNombre()
 	return nombre;
 }
 
-float AlumnoNodo::getNota()
+float AlumnoNodo::getNota() const
 {
 	return nota;
 }

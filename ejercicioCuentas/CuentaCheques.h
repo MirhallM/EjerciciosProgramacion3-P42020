@@ -8,7 +8,7 @@
 class CuentaCheques : public Cuenta
 {
 public:
-	CuentaCheques(string, double, double);
+	CuentaCheques(std::string, double, double);
 	//redefiniendo funciones de la clase padre
 	void abonar(double);
 	bool cargar(double);
