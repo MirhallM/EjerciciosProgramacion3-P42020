@@ -15,8 +15,9 @@ private:
 public:
 	ListaCircular();
 	void agregarNodo(const char* _valor);
-	void eliminarNodo(char* _valor);
+	void eliminarNodo(const char* _valor);
 	void imprimirLista();
+	void imprimirListaReversa();
 };
 #endif // !LISTACIRCULAR_H
 
