@@ -5,7 +5,7 @@
 
 #include "Nodo.h"
 
-class ListaSimple
+class ListaEnlazadaSimple
 {
 private:
 	Nodo* head;
@@ -13,7 +13,7 @@ private:
 	bool estaVacia();
 	int obtenerTamanio();
 public:
-	ListaSimple();
+	ListaEnlazadaSimple();
 	Nodo* obtenerPosNodo(int _posicion);
 	
 	void addNode(int);

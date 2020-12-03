@@ -13,15 +13,48 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\ListaSimple">
+      <UniqueIdentifier>{11365a3d-8cb3-461a-91ed-12a52d7b1b98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Simulador">
+      <UniqueIdentifier>{af3e2714-45c5-4c4e-8a4c-b519aec6fd91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ListaSimple">
+      <UniqueIdentifier>{3e22976c-39ca-407d-a48b-8f916a1b1592}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{ebfe531a-504c-468b-94d7-f74042016bb5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ListaSimple.h">
+      <Filter>Header Files\ListaSimple</Filter>
+    </ClInclude>
+    <ClInclude Include="Simulador.h">
+      <Filter>Header Files\Simulador</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoSimple.h">
+      <Filter>Header Files\ListaSimple</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoBase.h">
+      <Filter>Header Files\Simulador</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ListaSimple.cpp">
+      <Filter>Source Files\ListaSimple</Filter>
+    </ClCompile>
     <ClCompile Include="MyForm.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NodoSimple.cpp">
+      <Filter>Source Files\ListaSimple</Filter>
+    </ClCompile>
+    <ClCompile Include="Simulador.cpp">
+      <Filter>Source Files\GUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

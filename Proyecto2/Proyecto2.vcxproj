@@ -92,6 +92,8 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -120,12 +122,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ListaSimple.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="NodoSimple.cpp" />
+    <ClCompile Include="Simulador.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ListaSimple.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="NodoBase.h" />
+    <ClInclude Include="NodoSimple.h" />
+    <ClInclude Include="Simulador.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
