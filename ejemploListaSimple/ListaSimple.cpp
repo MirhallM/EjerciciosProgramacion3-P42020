@@ -50,7 +50,7 @@ void ListaSimple::addNode(int valor)
 	Nodo* newNodo = new Nodo(valor, nullptr);
 	if (estaVacia())
 	{
-		head = new Nodo(valor, nullptr);
+		head = newNodo;
 	}
 	else
 	{
@@ -59,7 +59,6 @@ void ListaSimple::addNode(int valor)
 		{
 			actual = actual->getSiguiente();
 		}
-
 		actual->setSiguiente(newNodo);
 	}
 }
