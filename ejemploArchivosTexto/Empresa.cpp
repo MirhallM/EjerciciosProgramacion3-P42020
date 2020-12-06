@@ -4,7 +4,33 @@
 
 using namespace std;
 
-void Empresa::agregarEmpleados()
+ArbolEmpresa Empresa::crearArbolDeArchivo()
+{
+	ArbolEmpresa arbol = ArbolEmpresa();
+
+	ifstream archivoEmpleados("empleados.dat", ios::in);
+
+	if (!archivoEmpleados)
+	{
+		cout << "Error al intentar abrir el archivo .dat" << endl;
+		return arbol;
+	}
+
+	int codigoEmpleado;
+	char nombreEmpleado[20];
+	float salarioEmpleado;
+
+	while (archivoEmpleados >> codigoEmpleado >> nombreEmpleado >> salarioEmpleado)
+	{
+		arbol.agregarNodo(codigoEmpleado, nombreEmpleado, salarioEmpleado);
+	}
+
+	archivoEmpleados.close();
+
+	return arbol;
+}
+
+void Empresa::agregarEmpleado(int codigo, char* nombre, float salario)
 {
 	/* formatos para manipular archivos
 	* lectura   -> ifstream
@@ -19,32 +45,9 @@ void Empresa::agregarEmpleados()
 		return;
 	}
 
-	int cantidadEmpleados = 0;
-	cout << "Ingrese cantidad de empleados a agregar: ";
-	cin >> cantidadEmpleados;
+	archivoEmpleados << codigo << ' ' << nombre << ' ' << salario << endl;
 
-	int codigoEmpleado;
-	char nombreEmpleado[20];
-	float salarioEmpleado;
-
-	cout << endl << endl << "* * * I N G R E S O  D E  E M P L E A D O S * * *" << endl << endl;
-	for (int i = 0; i < cantidadEmpleados; i++)
-	{
-		cout << "Empleado " << (i + 1) << ": " << endl;
-
-		cout << "Ingrese codigo de Empleado: ";
-		cin >> codigoEmpleado;
-		
-		cout << "Ingrese nombre de empleado: ";
-		cin >> nombreEmpleado;
-
-		cout << "Ingrese salario de Empleado: ";
-		cin >> salarioEmpleado;
-
-		archivoEmpleados << codigoEmpleado << ' ' << nombreEmpleado << ' ' << salarioEmpleado << endl;
-
-		cout << "Empleado almacenado!" << endl;
-	}
+	cout << "Empleado almacenado!" << endl;
 
 	archivoEmpleados.close();
 }
