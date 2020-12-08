@@ -83,3 +83,18 @@ void BuscarEmpleado()
 
 	arbol.buscarEmpleado(codigo);
 }
+
+int main()
+{
+	bool corriendo = true;
+	cargarArbol();
+	int subMenu;
+	cout << " * * * A C T I V I D A D  7 * * * " << endl;
+	do
+	{
+		TextoDeMenu();
+		cin >> subMenu;
+
+		Menu(subMenu, corriendo);
+	} while (corriendo);
+}
