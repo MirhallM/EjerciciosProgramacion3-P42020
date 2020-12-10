@@ -79,7 +79,7 @@ void EntidadEducativa::agregarAlumno()
 
 	alumno nuevo;
 
-	for (int i = 0; 9 < cantidadAlumnos; i++)
+	for (int i = 0; i < cantidadAlumnos; i++)
 	{
 		cout << "Alumno " << (i + 1) << ": " << endl;
 		
@@ -154,7 +154,7 @@ void EntidadEducativa::agregarMaterias()
 		cout << "Ingrese nombre de la materia: ";
 		cin >> nueva.nombre;
 
-		cout << "Ingrese la cantidad de unidades valorativas:";
+		cout << "Ingrese la cantidad de unidades valorativas: ";
 		cin >> nueva.UV;
 
 		materiasFile.write(reinterpret_cast<const char*>(&nueva), sizeof(materia));
@@ -209,7 +209,7 @@ void EntidadEducativa::agregarNota(int cuentaAlumno, int codigoMateria, float no
 		return;
 	}
 
-	ofstream File("notas.bin", ios::out | ios::app || ios::binary);
+	ofstream File("notas.bin", ios::out | ios::app | ios::binary);
 
 	if (!File)
 	{
