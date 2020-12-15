@@ -280,3 +280,85 @@ void EntidadEducativa::consultarNotas()
 
 	notasFile.close();
 }
+
+int EntidadEducativa::obtenerUV(int codigoMateria)
+{
+
+	ifstream File("materias.bin", ios::in | ios::binary);
+
+	if (!File)
+	{
+		cout << "No se pudo abrir el archivo materias.bin" << endl;
+		return -1;
+	}
+
+	materia actual;
+
+	File.seekg(0, ios::beg);
+
+	File.read(reinterpret_cast<char*>(&actual), sizeof(materia));
+
+	while (!File.eof())
+	{
+		if (codigoMateria == actual.codigoMateria)
+		{
+			File.close();
+			return actual.UV;
+		}
+		File.read(reinterpret_cast<char*>(&actual), sizeof(materia));
+	}
+	File.close();
+	return -1;
+}
+
+void EntidadEducativa::actualizarPromedio(int cuenta)
+{
+	ifstream notasFile("notas.bin", ios::in | ios::binary);
+	fstream alumnosFile("alumnos.bin", ios::in | ios::out | ios::binary);
+
+	if (!notasFile)
+	{
+		cout << "Error al abrir el archivo notas.bin" << endl;
+		return;
+	}
+
+	notas actual;
+	float notaTotal = 0;
+	int unidadesValorativas = 0;
+
+	notasFile.seekg(0, ios::beg);
+	notasFile.read(reinterpret_cast<char*>(&actual), sizeof(notas));
+
+	while (!notasFile.eof())
+	{
+		if (cuenta == actual.cuentaAlumno)
+		{
+			int uv = obtenerUV(actual.codigoMateria);
+			notaTotal += (actual.nota * uv);
+			unidadesValorativas += uv;
+		}
+		notasFile.read(reinterpret_cast<char*>(&actual), sizeof(notas));
+	}
+	int promedio = notaTotal / unidadesValorativas;
+	
+	alumnosFile.seekg(0, ios::beg);
+	alumno current;
+
+	int posicionActual = alumnosFile.tellg();
+	alumnosFile.read(reinterpret_cast<char*>(&current), sizeof(alumno));
+
+	while (!alumnosFile.eof())
+	{
+		if (current.cuenta == cuenta)
+		{
+			current.promedio = promedio;
+			alumnosFile.seekg(posicionActual, ios::beg);
+			alumnosFile.write(reinterpret_cast<const char*>(&current), sizeof(alumno));
+			alumnosFile.close();
+			return;
+		}
+		int posicionActual = alumnosFile.tellg();
+		alumnosFile.read(reinterpret_cast<char*>(&current), sizeof(alumno));
+	}
+	alumnosFile.close();
+}

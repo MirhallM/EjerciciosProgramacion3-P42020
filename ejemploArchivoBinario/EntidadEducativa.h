@@ -44,5 +44,8 @@ public:
 	//int codigo Alumno, int codigomateria, float nota
 	static void NuevaNota();
 	static void consultarNotas();
+
+	static int obtenerUV(int codigoMateria);
+	static void actualizarPromedio(int cuenta);
 };
 #endif // !UNIVERSIDAD_h
