@@ -1,0 +1,2 @@
+Nombre Artistico: yes
+Año de Nacimiento: 100

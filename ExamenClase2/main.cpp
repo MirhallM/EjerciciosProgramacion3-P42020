@@ -51,11 +51,12 @@ int main()
 
 void addSingle(Artista& artista)
 {
-	char* nombre{};
+	string nombre;
 	cout << "Ingrese nombre del album: ";
 	cin >> nombre;
+
 	Album* buscar = nullptr;
-	buscar = artista.buscarAlbum(nombre);
+	buscar = artista.buscarAlbum(nombre.c_str());
 	if (buscar != nullptr)
 	{
 		buscar->agregarSencillo();

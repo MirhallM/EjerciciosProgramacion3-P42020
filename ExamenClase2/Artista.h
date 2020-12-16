@@ -17,7 +17,7 @@ public:
 	void setAnioNacimiento(int _anio);
 
 	int totalSencillos();
-	Album* buscarAlbum(char* nombre);
+	Album* buscarAlbum(const char* nombre);
 	int cantidadAlbumes();
 	int totalMinutosReproduccion();
 	void guardarEnArchivo();

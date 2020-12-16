@@ -10,7 +10,7 @@ Album::Album(const char* _nombreAlbum, int _anio, const char* _genero, Album* si
     strcpy_s(nombreAlbum, strlen(_nombreAlbum) + 1, _nombreAlbum);
 
     genero = new char[strlen(_genero)];
-    strcpy_s(genero, strlen(_genero), _genero);
+    strcpy_s(genero, strlen(_genero) + 1, _genero);
 }
 
 char* Album::getNombre()

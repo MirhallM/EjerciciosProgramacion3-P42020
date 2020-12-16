@@ -13,7 +13,7 @@ bool Artista::estaVacia()
 Artista::Artista(const char* _nombre, int anio) : primerAlbum(nullptr), anioNacimiento(anio)
 {
     nombreArtistico = new char[strlen(_nombre)];
-    strcpy_s(nombreArtistico, strlen(_nombre), _nombre);
+    strcpy_s(nombreArtistico, strlen(_nombre) + 1, _nombre);
 }
 
 char* Artista::getNombre()
@@ -55,7 +55,7 @@ int Artista::totalSencillos()
     return total;
 }
 
-Album* Artista::buscarAlbum(char* nombre)
+Album* Artista::buscarAlbum(const char* nombre)
 {
     if (estaVacia())
     {
