@@ -10,7 +10,7 @@ bool Artista::estaVacia()
     return primerAlbum == nullptr;
 }
 
-Artista::Artista(char* _nombre, int anio) : primerAlbum(nullptr), anioNacimiento(anio)
+Artista::Artista(const char* _nombre, int anio) : primerAlbum(nullptr), anioNacimiento(anio)
 {
     nombreArtistico = new char[strlen(_nombre)];
     strcpy_s(nombreArtistico, strlen(_nombre), _nombre);
@@ -161,7 +161,7 @@ void Artista::agregarAlbum()
     cout << "Ingrese genero del album: ";
     cin >> genero;
 
-    Album* nuevo = new Album(nombre, anio, genero, nullptr);
+    Album* nuevo = new Album(nombre.c_str(), anio, genero.c_str(), nullptr);
     if (estaVacia())
     {
         primerAlbum = nuevo;

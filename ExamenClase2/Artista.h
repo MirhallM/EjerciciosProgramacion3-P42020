@@ -9,7 +9,7 @@ private:
 	int anioNacimiento;
 	bool estaVacia();
 public:
-	Artista(char* _nombre, int anio);
+	Artista(const char* _nombre, int anio);
 
 	char* getNombre();
 	int getAnioNacimiento();

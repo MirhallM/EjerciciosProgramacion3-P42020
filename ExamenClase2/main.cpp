@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	char* nombreArtista{};
+	string nombreArtista{};
 	int birthyear;
 	cout << "Ingrese nombre del artista: ";
 	cin >> nombreArtista;
