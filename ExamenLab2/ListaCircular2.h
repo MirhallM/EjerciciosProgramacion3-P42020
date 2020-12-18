@@ -15,6 +15,5 @@ public:
 
 	void imprimirLista();
 	void eliminarObjeto(int pos);
-
+	void imprimirCantidadPorObjeto();
 };
-

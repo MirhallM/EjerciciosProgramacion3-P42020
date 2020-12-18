@@ -9,6 +9,7 @@ Cadena2::Cadena2(const char* str)
 	strcpy_s(valor, strlen(str) + 1, str);
 	this->setSiguiente(nullptr);
 	this->setAnterior(nullptr);
+	this->setType(CADENA);
 }
 
 void Cadena2::printNodo()

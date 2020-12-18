@@ -11,7 +11,7 @@ private:
 	NodoBase* siguiente;
 	NodoBase* anterior;
 public:
-	virtual ~NodoBase();
+
 	virtual void printNodo() = 0;
 	NodoBase* getSiguiente()
 	{
