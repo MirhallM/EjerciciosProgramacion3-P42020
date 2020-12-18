@@ -142,8 +142,8 @@
     <ClInclude Include="Cadena2.h" />
     <ClInclude Include="Caracter.h" />
     <ClInclude Include="Decimal.h" />
-    <ClInclude Include="Entero.h" />
-    <ClInclude Include="ListaCircular.h" />
+    <ClInclude Include="Entero2.h" />
+    <ClInclude Include="ListaCircular2.h" />
     <ClInclude Include="NodoBase.h" />
   </ItemGroup>
   <ItemGroup>
@@ -151,7 +151,7 @@
     <ClCompile Include="Caracter.cpp" />
     <ClCompile Include="Decimal.cpp" />
     <ClCompile Include="Entero.cpp" />
-    <ClCompile Include="ListaCircular.cpp" />
+    <ClCompile Include="ListaCircular2.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

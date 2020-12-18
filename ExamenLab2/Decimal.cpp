@@ -6,6 +6,7 @@ using namespace std;
 Decimal::Decimal(float num) : valor()
 {
 	this->setSiguiente(nullptr);
+	this->setAnterior(nullptr);
 }
 
 void Decimal::printNodo()

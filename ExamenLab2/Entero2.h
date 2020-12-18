@@ -2,12 +2,12 @@
 
 #include "NodoBase.h"
 
-class Entero : public NodoBase
+class Entero2 : public NodoBase
 {
 private:
 	int entero;
 public:
-	Entero(int numero);
+	Entero2(int numero);
 	void printNodo();
 };
 
