@@ -122,24 +122,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ListaSimple.cpp" />
     <ClCompile Include="MyForm.cpp" />
-    <ClCompile Include="NodoSimple.cpp" />
     <ClCompile Include="Simulador.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ListaSimple.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="NodoBase.h" />
-    <ClInclude Include="NodoSimple.h" />
     <ClInclude Include="Simulador.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\Users\molin\Desktop\Fotos Proyecto 2\NodoCircularCabeza.png" />
+    <Image Include="..\..\..\Users\molin\Desktop\Fotos Proyecto 2\NodoCircularFinal.png" />
+    <Image Include="..\..\..\Users\molin\Desktop\Fotos Proyecto 2\NodoCircularMedio.png" />
+    <Image Include="..\..\..\Users\molin\Desktop\Fotos Proyecto 2\NodoCircularSolo.png" />
+    <Image Include="..\..\..\Users\molin\Desktop\Fotos Proyecto 2\NodoDobleCabeza.png" />
+    <Image Include="..\..\..\Users\molin\Desktop\Fotos Proyecto 2\NodoDobleFinal.png" />
+    <Image Include="..\..\..\Users\molin\Desktop\Fotos Proyecto 2\NodoDobleMedio.png" />
+    <Image Include="..\..\..\Users\molin\Desktop\Fotos Proyecto 2\NodoDobleSolo.png" />
+    <Image Include="..\..\..\Users\molin\Desktop\Fotos Proyecto 2\NodoSimpleFinal.png" />
+    <Image Include="..\..\..\Users\molin\Desktop\Fotos Proyecto 2\NodoSimpleNormal.png" />
+    <Image Include="NodoVector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="verdanab.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

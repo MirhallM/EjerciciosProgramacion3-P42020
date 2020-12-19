@@ -1,4 +1,6 @@
 #pragma once
+#ifndef NODOSIMPLE_H
+#define NODOSIMPLE_H
 
 #include "NodoBase.h"
 
@@ -17,4 +19,8 @@ public:
 	int getValor();
 	NodoSimple* getSiguiente();
 };
+
+#endif // !NODOSIMPLE_H
+
+
 

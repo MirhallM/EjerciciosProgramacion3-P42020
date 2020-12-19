@@ -140,5 +140,5 @@ NodoBase* ListaEnlazadaSimple::busqueda(int _valor)
 
 void ListaEnlazadaSimple::mostrar()
 {
-	// TODO: Add mostrar functionality
+	// TODO: Add mostrar functionality lista simple
 }

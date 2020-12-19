@@ -1,22 +1,36 @@
 #pragma once
+#ifndef SIMULADOR_H
+#define SIMULADOR_H
 
-#include "NodoBase.h"
+#include <vector>
 
-class Simulador 
+class Simulador
 {
+private:
+	std::vector<int> simulador;
+
 public:
+	Simulador();
 	//1. Inserciones
-	virtual void insertarInicio(int _valor);
-	virtual void agregarFinal(int _valor);
-	virtual void insertarPosicion(int pos, int valor);
+	void insertarInicio(int _valor);
+	void agregarFinal(int _valor);
+	bool insertarPosicion(int pos, int valor);
 
 	//2. Eliminaciones
-	virtual void eliminarPorValor(int _valor);
-	virtual void eliminarPorPosicion(int pos);
+	void eliminarPorValor(int _valor);
+	void eliminarPorPosicion(int pos);
 
 	//3.Busqueda
-	virtual NodoBase* busqueda(int _valor);
+	int busqueda(int _valor);
 
-	virtual void mostrar();
+	void mostrar();
+
+	void limpiarVector();
+	int getSize();
+	int getPos(int pos);
 };
+
+#endif // !SIMULADOR_H
+
+
 

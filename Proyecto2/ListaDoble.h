@@ -1,18 +1,20 @@
 #pragma once
-#ifndef LISTASIMPLE_H
-#define LISTASIMPLE_H
+#ifndef LISTADOBLE_H
+#define LISTADOBLE_H
 
+#include "NodoDoble_Circular.h"
 #include "Simulador.h"
-#include "NodoSimple.h"
 
-class ListaEnlazadaSimple : public Simulador
+class ListaDoble : public Simulador
 {
 private:
-	NodoSimple* head;
+	NodoDoble_Circular* head;
+	NodoDoble_Circular* tail;
+
 	bool estaVacia();
 public:
-	ListaEnlazadaSimple();
-
+	ListaDoble();
+	
 	//Inherited
 	//1. Inserciones
 	void insertarInicio(int _valor);
@@ -30,6 +32,5 @@ public:
 	void mostrar();
 };
 
-#endif // !LISTASIMPLE_H
 
-
+#endif // !LISTADOBLE_H
